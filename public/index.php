@@ -14,7 +14,7 @@
         <div class="top-bar visible-on-md-up">
             <div class="con height-100p flex flex-jc-sb">
                 <a href="#" class="logo flex flex-ai-c">
-                    <i class="fas fa-cannabis"></i>
+                    <i class="fas fa-book-reader"></i>
                 </a>
                 <nav class="menu-box-1">
                     <ul class="flex height-100p">
@@ -32,7 +32,7 @@
                     </ul>
                 </nav>
             </div>
-            <div>메인페이지 입니다.</div>
+            <div class="con main-image"><img src="https://i.ibb.co/9pNDJHM/typewriter-801921-1920.jpg"></div>
         </div>
 
         <div class="mobile-top-bar visible-on-sm-down flex flex-ai-c">
