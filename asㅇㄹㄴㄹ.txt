@@ -1,0 +1,87 @@
+# 캐릭터SET 설정
+SET NAMES utf8mb4;
+
+# DB 생성
+DROP DATABASE IF EXISTS site21;
+CREATE DATABASE site21;
+USE site21;
+
+# 카테고리
+DROP TABLE IF EXISTS cateItem;
+CREATE TABLE cateItem(
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    regDate DATETIME NOT NULL,
+    `name` CHAR(100) NOT NULL UNIQUE    
+);
+
+TRUNCATE cateItem;
+
+INSERT INTO cateItem
+SET `name` = '일상',
+regDate = NOW();
+
+INSERT INTO cateItem
+SET `name` = 'IT자바기초',
+regDate = NOW();
+
+INSERT INTO cateItem
+SET `name` = 'DB',
+regDate = NOW();
+
+INSERT INTO cateItem
+SET `name` = '포트폴리오',
+regDate = NOW();
+
+INSERT INTO cateItem
+SET `name` = '자바 소스코드',
+regDate = NOW();
+
+SELECT * FROM cateItem;
+
+DROP TABLE IF EXISTS Article;
+
+CREATE TABLE Article(
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    regDate DATETIME NOT NULL,
+    updateDate DATETIME NOT NULL,
+    cateItemId INT(10) UNSIGNED NOT NULL,
+    displayStatus TINYINT(1) UNSIGNED NOT NULL,
+    `title` CHAR(200) NOT NULL,
+    `body` LONGTEXT NOT NULL
+);
+
+TRUNCATE Article;
+
+INSERT INTO Article
+SET regDate = NOW(),
+updateDate = NOW(),
+cateItemId = 3,
+title ="jdbc란?",
+`body` ="# JDBC(Java Database Connectivity)
+- 자바에서 데이터베이스에 접속할 수 있도록 하는 자바 API이다.
+- JDBC는 데이터베이스에서 자료를 쿼리하거나 업데이트하는 방법을 제공한다.
+# JDBC Driver
+- DBMS와 통신을 담당하는 자바 클래스이다.
+- DMBS 별로 알맞은 JDBC 드라이버 필요하다. (jar)
+- MY SQL, 오라클 MSSQL  등이 있다.";   
+
+INSERT INTO Article
+SET regDate = NOW(),
+updateDate = NOW(),
+cateItemId = 1,
+title ="jdbc란?",
+`body` ="# JDBC(Java Database Connectivity)
+- 자바에서 데이터베이스에 접속할 수 있도록 하는 자바 API이다.
+- JDBC는 데이터베이스에서 자료를 쿼리하거나 업데이트하는 방법을 제공한다.
+# JDBC Driver
+- DBMS와 통신을 담당하는 자바 클래스이다.
+- DMBS 별로 알맞은 JDBC 드라이버 필요하다. (jar)
+- MY SQL, 오라클 MSSQL  등이 있다.";   
+
+SELECT * FROM Article;
+
+SELECT * FROM Article WHERE cateItemId = 3 ORDER BY id DESC LIMIT 0, 5;  
+
+SELECT * FROM Article ORDER BY id DESC LIMIT 0, 5
+
+SELECT * FROM Article 
